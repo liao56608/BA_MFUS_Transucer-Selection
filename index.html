@@ -126,6 +126,32 @@ th {
     color: #333;
     font-size: 16px;
 }
+/* ===== iPhone layout (do NOT affect iPad) ===== */
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .ref-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    td input {
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 14px;
+    }
+}
 
 </style>
 </head>
@@ -328,6 +354,7 @@ document.addEventListener("input", function (e) {
 
 </body>
 </html>
+
 
 
 
