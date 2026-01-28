@@ -155,11 +155,11 @@ th {
 <div class="card-title">Left Face</div>
 A
 <div class="tri">
-<input class="la"><input class="la"><input class="la">
+<input class="la num2" inputmode="decimal"><input class="la num2" inputmode="decimal"><input class="la num2" inputmode="decimal">
 </div>
 B
 <div class="tri">
-<input class="lb"><input class="lb"><input class="lb">
+<input class="lb num2" inputmode="decimal"><input class="lb num2" inputmode="decimal"><input class="lb num2" inputmode="decimal">
 </div>
 </div>
 
@@ -167,18 +167,19 @@ B
 <div class="card-title">Right Face</div>
 A
 <div class="tri">
-<input class="ra"><input class="ra"><input class="ra">
+<input class="ra num2" inputmode="decimal"><input class="ra num2" inputmode="decimal"><input class="ra num2" inputmode="decimal">
 </div>
 B
 <div class="tri">
-<input class="rb"><input class="rb"><input class="rb">
+<input class="rb num2" inputmode="decimal"><input class="rb num2" inputmode="decimal"><input class="rb num2" inputmode="decimal">
 </div>
 </div>
 
 <div class="card">
-<div class="card-title">Submental (C)</div>
+<div class="card-title">Submental</div>
+C
 <div class="tri">
-<input class="sc"><input class="sc"><input class="sc">
+<input class="sc num2" inputmode="decimal"><input class="sc num2" inputmode="decimal"><input class="sc num2" inputmode="decimal">
 </div>
 </div>
 
@@ -300,10 +301,34 @@ function updateTime(){
 }
 updateTime();
 setInterval(updateTime,1000);
+
+document.addEventListener("input", function (e) {
+    if (!e.target.classList.contains("num2")) return;
+
+    let v = e.target.value;
+
+    // Allow only digits and one decimal point
+    v = v.replace(/[^0-9.]/g, "");
+
+    // Prevent multiple decimals
+    const parts = v.split(".");
+    if (parts.length > 2) {
+        v = parts[0] + "." + parts.slice(1).join("");
+    }
+
+    // Limit to 2 decimal places
+    if (parts[1]?.length > 2) {
+        v = parts[0] + "." + parts[1].slice(0, 2);
+    }
+
+    e.target.value = v;
+});
+
 </script>
 
 </body>
 </html>
+
 
 
 
