@@ -179,11 +179,11 @@ th {
 
 <div class="card">
 <div class="card-title">Left Face</div>
-A
+A (mm)
 <div class="tri">
 <input class="la num2" inputmode="decimal"><input class="la num2" inputmode="decimal"><input class="la num2" inputmode="decimal">
 </div>
-B
+B (mm)
 <div class="tri">
 <input class="lb num2" inputmode="decimal"><input class="lb num2" inputmode="decimal"><input class="lb num2" inputmode="decimal">
 </div>
@@ -191,11 +191,11 @@ B
 
 <div class="card">
 <div class="card-title">Right Face</div>
-A
+A (mm)
 <div class="tri">
 <input class="ra num2" inputmode="decimal"><input class="ra num2" inputmode="decimal"><input class="ra num2" inputmode="decimal">
 </div>
-B
+B (mm)
 <div class="tri">
 <input class="rb num2" inputmode="decimal"><input class="rb num2" inputmode="decimal"><input class="rb num2" inputmode="decimal">
 </div>
@@ -203,7 +203,7 @@ B
 
 <div class="card">
 <div class="card-title">Submental</div>
-C
+C (mm)
 <div class="tri">
 <input class="sc num2" inputmode="decimal"><input class="sc num2" inputmode="decimal"><input class="sc num2" inputmode="decimal">
 </div>
@@ -214,7 +214,7 @@ C
 <div id="results" style="display:none">
 
 <table>
-<tr><th>Area</th><th>A Avg</th><th>B Avg</th><th>C Avg</th></tr>
+<tr><th>Area</th><th>A Avg (mm) </th><th>B Avg (mm) </th><th>C Avg (mm) </th></tr>
 <tr>
 <td>Left</td>
 <td id="avg-la"></td>
@@ -269,23 +269,23 @@ function avg(cls){
 
 function decideSingle(A,B){
     if(A>=4.5){
-        if(B>=4.5) return "Use 4.5 & 3.0";
-        if(B>=3.0) return "Use 3.0 & 2.0";
-        if(B>=2.0) return "Use 2.0 Only";
+        if(B>=4.5) return "Use 4.5 & 3.0 (M & D Transducer)";
+        if(B>=3.0) return "Use 3.0 & 2.0 (M & D Transducer)";
+        if(B>=2.0) return "Use 2.0 Only (M & D Transducer)";
         return "Prohibited";
     } else if(A>=3.0){
-        if(B>=3.0) return "Use 3.0 & 2.0";
-        if(B>=2.0) return "Use 2.0 Only";
+        if(B>=3.0) return "Use 3.0 & 2.0 (M & D Transducer)";
+        if(B>=2.0) return "Use 2.0 Only (M & D Transducer)";
         return "Prohibited";
     } else if(A>=2.0){
-        if(B>=2.0) return "Use 2.0 Only";
+        if(B>=2.0) return "Use 2.0 Only (M & D Transducer)";
         return "Prohibited";
     }
     return "Prohibited";
 }
 
 function decideSub(C){
-    return C>=4.5 ? "Use 4.5 & 3.0" : "Use 3.0 Only";
+    return C>=4.5 ? "Use 4.5 & 3.0" : "Use 3.0 Only (M & D Transducer)";
 }
 
 function calculate(){
@@ -354,6 +354,7 @@ document.addEventListener("input", function (e) {
 
 </body>
 </html>
+
 
 
 
